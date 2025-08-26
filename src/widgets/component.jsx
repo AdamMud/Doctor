@@ -1,12 +1,14 @@
-const { default: Image } = require("next/image");
+// const { default: Image } = require("next/image");
+
+import Image from "next/image";
 
 
 
 export function Cart1(props) {
     return(
-        <div className="flex gap-[10px] font-semibold">
+        <div className="flex gap-[20px] font-semibold items-center">
             <Image src={props.img}/>
-            <div className="text-[16px]">
+            <div className="text-[16px] ">
                 <h1>{props.name}</h1>
                 <p className="text-[#159EEC] font-sans">{props.des}</p>
             </div>

@@ -1,0 +1,80 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "name": "Иван Иванов",
+      "email": "ivan@mail.com",
+      "phone": "+998901234567",
+      "medicalRecord": [
+        {
+          "date": "2025-08-20",
+          "doctor": "Dr. Alexey Petrov",
+          "diagnosis": "Грипп",
+          "recommendations": "Пить больше воды, отдыхать"
+        }
+      ]
+    }
+  ],
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. Alexey Petrov",
+      "specialization": "Терапевт",
+      "email": "alexey@mail.com",
+      "phone": "+998901112233",
+      "patients": [1]  
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "patientId": 1,
+      "doctorId": 1,
+      "date": "2025-08-22",
+      "time": "10:00"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "role": "patient",
+      "email": "ivan@mail.com",
+      "password": "123456",  
+      "token": "patient-token-123"
+    },
+    {
+      "id": 2,
+      "role": "doctor",
+      "email": "alexey@mail.com",
+      "password": "123456",
+      "token": "doctor-token-123"
+    },
+    {
+      "id": 3,
+      "role": "admin",
+      "email": "admin@mail.com",
+      "password": "admin123",
+      "token": "admin-token-123"
+    }
+  ],
+  "chat": [
+    {
+      "id": 1,
+      "from": "patient",
+      "fromId": 1,
+      "to": "doctor",
+      "toId": 1,
+      "message": "Здравствуйте, доктор!",
+      "time": "2025-08-21T21:00:00Z"
+    },
+    {
+      "id": 2,
+      "from": "doctor",
+      "fromId": 1,
+      "to": "patient",
+      "toId": 1,
+      "message": "Здравствуйте, Иван. Как самочувствие?",
+      "time": "2025-08-21T21:05:00Z"
+    }
+  ]
+}
