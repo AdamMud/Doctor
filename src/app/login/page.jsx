@@ -1,67 +1,160 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+// import { useGetUsersQuery, useAddUserMutation } from "@/store/apiSlice";
+import Image from "next/image";
+// import doctorImg from "@/images/image1.jpeg"; // путь к твоему изображению
+// import doctorImg from '@/images/Duxtur.jpeg'
+import doctorImg from '@/images/image3.jpg'
+import { useAddUserMutation, useGetUsersQuery } from "@/store/pages/auth/logIn/login";
 
-
-'use client';
-
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useGetUsersQuery } from '@/store/pages/auth/logIn/login';
-// import { useGetUsersQuery } from '../../store/apiSlice';
-
-export default function LoginPage() {
+export default function PatientAuthPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [isRegister, setIsRegister] = useState(false);
 
-  const { data: users, isLoading, error: fetchError } = useGetUsersQuery();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const { data: users } = useGetUsersQuery();
+  const [addUser, { isLoading: isRegistering }] = useAddUserMutation();
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     if (!users) return;
 
-    const user = users.find(u => u.email === email && u.password === password);
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
 
     if (!user) {
-      setError('Неверный email или пароль');
+      setError("Неверный email или пароль");
       return;
     }
 
-    if (user.role === 'patient') router.push('/patient');
-    if (user.role === 'doctor') router.push('/doctors');
-    if (user.role === 'admin') router.push('/admin');
+    if (user.role === "patient") router.push("/patient/");
+    if (user.role === "doctor") router.push("/doctors/");
+    if (user.role === "admin") router.push("/admin/");
   };
 
-  if (isLoading) return <p className="text-center mt-10">Загрузка...</p>;
-  if (fetchError) return <p className="text-center mt-10 text-red-500">Ошибка сервера</p>;
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !phone || !password) {
+      setError("Заполните все поля");
+      return;
+    }
+
+    try {
+      await addUser({
+        name,
+        email,
+        phone,
+        password,
+        role: "patient",
+        token: `patient-token-${Date.now()}`,
+      }).unwrap();
+
+      router.push("/patient/doctors");
+    } catch (err) {
+      console.error(err);
+      setError("Ошибка при регистрации");
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-6 text-center">Вход</h1>
+      <div className="flex flex-col md:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden max-w-4xl w-full h-[800px]">
+        {/* Левый блок с изображением */}
+        <div className="md:w-1/2">
+          <Image
+            src={doctorImg}
+            alt="Doctor"
+            className="object-cover w-full h-full"
+            width={500}
+            height={500}
+          />
+        </div>
 
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {/* Правый блок с формой */}
+        <div className="md:w-1/2 p-10 flex flex-col justify-center bg-white">
+          <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center">
+            {isRegister ? "Регистрация" : "Вход"}
+          </h1>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="w-full p-2 mb-4 border rounded"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Пароль"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="w-full p-2 mb-4 border rounded"
-          required
-        />
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-          Войти
-        </button>
-      </form>
+          {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+
+          <form
+            onSubmit={isRegister ? handleRegister : handleLogin}
+            className="space-y-5"
+          >
+            {isRegister && (
+              <>
+                <input
+                  type="text"
+                  placeholder="Имя"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Телефон"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  required
+                />
+              </>
+            )}
+
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              required
+            />
+            <input
+              type="password"
+              placeholder="Пароль"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              required
+            />
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+              disabled={isRegister && isRegistering}
+            >
+              {isRegister
+                ? isRegistering
+                  ? "Регистрация..."
+                  : "Зарегистрироваться"
+                : "Войти"}
+            </button>
+          </form>
+
+          <p className="mt-6 text-center text-gray-500">
+            {isRegister ? "Уже есть аккаунт?" : "Нет аккаунта?"}{" "}
+            <button
+              className="text-blue-600 hover:underline"
+              onClick={() => {
+                setError("");
+                setIsRegister(!isRegister);
+              }}
+            >
+              {isRegister ? "Войти" : "Зарегистрироваться"}
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -22,7 +22,29 @@
       "specialization": "Терапевт",
       "email": "alexey@mail.com",
       "phone": "+998901112233",
-      "patients": [1]  
+      "patients": [
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Dr. Alexey Petrov",
+      "specialization": "Терапевт",
+      "email": "alexey@mail.com",
+      "phone": "+998901112233",
+      "patients": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Dr. Alexey Petrov",
+      "specialization": "Терапевт",
+      "email": "alexey@mail.com",
+      "phone": "+998901112233",
+      "patients": [
+        3
+      ]
     }
   ],
   "appointments": [
@@ -39,7 +61,7 @@
       "id": 1,
       "role": "patient",
       "email": "ivan@mail.com",
-      "password": "123456",  
+      "password": "123456",
       "token": "patient-token-123"
     },
     {
@@ -55,6 +77,24 @@
       "email": "admin@mail.com",
       "password": "admin123",
       "token": "admin-token-123"
+    },
+    {
+      "id": "6cae",
+      "name": "Ahlidin",
+      "email": "ahliddinpr1@gmail.com",
+      "phone": "999442977",
+      "password": "ahlidin12",
+      "role": "patient",
+      "token": "patient-token-1756219592865"
+    },
+    {
+      "id": "c5d2",
+      "name": "zokir",
+      "email": "zokz@gmail.com",
+      "phone": "900100605",
+      "password": "zoka12",
+      "role": "patient",
+      "token": "patient-token-1756226271293"
     }
   ],
   "chat": [
