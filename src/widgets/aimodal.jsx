@@ -29,7 +29,7 @@ export default function ChatModal() {
         <DialogTitle>Gemini Chat</DialogTitle>
         <DialogContent>
           <TextField
-            label="hello how can i help you"
+            label="Hello , how can i help you"
             multiline
             fullWidth
             rows={3}

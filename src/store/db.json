@@ -19,6 +19,7 @@
     {
       "id": 1,
       "name": "Dr. Alexey Petrov",
+      "img": "/doctor/Duxtur.jpeg",
       "specialization": "Терапевт",
       "email": "alexey@mail.com",
       "phone": "+998901112233",
@@ -28,20 +29,55 @@
     },
     {
       "id": 2,
-      "name": "Dr. Alexey Petrov",
-      "specialization": "Терапевт",
-      "email": "alexey@mail.com",
-      "phone": "+998901112233",
+      "name": "Dr. Ivan Sidorov",
+      "img": "/doctor/image1.jpeg",
+      "specialization": "Кардиолог",
+      "email": "ivan@mail.com",
+      "phone": "+998901112234",
       "patients": [
         2
       ]
     },
     {
       "id": 3,
-      "name": "Dr. Alexey Petrov",
-      "specialization": "Терапевт",
-      "email": "alexey@mail.com",
-      "phone": "+998901112233",
+      "name": "Dr. Anna Smirnova",
+      "img": "/doctor/Duxtur.jpeg",
+      "specialization": "Педиатр",
+      "email": "anna@mail.com",
+      "phone": "+998901112235",
+      "patients": [
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dr. Anna Smirnova",
+      "img": "/doctor/Duxtur.jpeg",
+      "specialization": "Педиатр",
+      "email": "anna@mail.com",
+      "phone": "+998901112235",
+      "patients": [
+        3
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Dr. Anna Smirnova",
+      "img": "/doctor/Duxtur.jpeg",
+      "specialization": "Педиатр",
+      "email": "anna@mail.com",
+      "phone": "+998901112235",
+      "patients": [
+        3
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Dr. Anna Smirnova",
+      "img": "/doctor/Duxtur.jpeg",
+      "specialization": "Педиатр",
+      "email": "anna@mail.com",
+      "phone": "+998901112235",
       "patients": [
         3
       ]
@@ -74,6 +110,7 @@
     {
       "id": 3,
       "role": "admin",
+      "name": "Azam",
       "email": "admin@mail.com",
       "password": "admin123",
       "token": "admin-token-123"
@@ -95,6 +132,15 @@
       "password": "zoka12",
       "role": "patient",
       "token": "patient-token-1756226271293"
+    },
+    {
+      "id": "57f9",
+      "name": "Sobir",
+      "email": "sobir12@gmail.com",
+      "phone": "000001111",
+      "password": "sobir12",
+      "role": "doctor",
+      "token": "doctor-token-1756720582863"
     }
   ],
   "chat": [

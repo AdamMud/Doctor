@@ -5,12 +5,13 @@ import { Cart1 } from "@/widgets/component";
 import logo1 from "../../images/Group 188.png";
 import logo2 from "../../images/Group 177.png";
 import logo3 from "../../images/Group 178.png";
-import Link from "next/link";
+// import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTwitter, FaGlobe } from "react-icons/fa";
 import Badge from '@mui/material/Badge';
 // import MailIcon from '@mui/icons-material/Mail';
 
 import ChatModal from "@/widgets/aimodal";
+import Link from "next/link";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,39 +22,44 @@ export default function PatientLayout({ children }) {
             <body className={`${inter.className} bg-gray-50`}>
                 {/* Header */}
                 <header className="lg:w-[90%] m-auto flex flex-col lg:flex-row justify-between items-center lg:p-[20px] gap-4">
-                    <h1 className="text-[40px] font-mono font-bold">
-                        HISSOR <span className="text-[#159EEC] ">CLINIK</span>
-                    </h1>
+                    <h1 className="text-[40px] font-mono font-bold">HISSOR <span className="text-[#159EEC] ">CLINIK</span></h1>
 
-                    <aside className="flex flex-col lg:flex-row gap-[20px]">
+                    <aside className="hidden  lg:flex gap-[20px]">
                         <Cart1 img={logo1} name="Emergency" des="(237) 681-812-255" alt="Emergency Icon" />
                         <Cart1 img={logo2} name="Work Hour" des="09:00 - 20:00 Everyday" alt="Work Hour Icon" />
                         <Cart1 img={logo3} name="Location" des="Hissor City" alt="Location Icon" />
+                    <div className="flex justify-end p-4">
+                        <Link href="/login">
+                            <button className="border-gradient-to-r from-green-500 to-green-700 text-green-600 font-semibold px-6 py-2 rounded-2xl shadow-md hover:scale-105 hover:shadow-lg hover:from-green-600 hover:to-green-800 transition-all duration-300 ease-in-out active:scale-95">
+                                Exit
+                            </button>
+                        </Link>
+                    </div>
                     </aside>
+
                 </header>
 
                 {/* Навигация для пациента */}
 
                 <section className=" text-white bg-gradient-to-r  px-[20px] py-[10px] from-blue-600 via-blue-800 to-indigo-900 m-auto mt-4 flex gap-6 border-b pb-2 text-lg font-medium">
                     <div className="lg:w-[90%] m-auto flex gap-[20px]">
-                    <Link href="/patient" className="hover:text-[#159EEC]">Главная</Link>
-                    <Link href="/patient/doctors" className="hover:text-[#159EEC]">Врачи</Link>
-                    <Link href="/patient/profile" className="hover:text-[#159EEC]">Инфо</Link>
+                        <Link href="/patient" className="hover:text-[#159EEC]">Главная</Link>
+                        <Link href="/patient/doctors" className="hover:text-[#159EEC]">Врачи</Link>
+                        <Link href="/patient/info" className="hover:text-[#159EEC]">Инфо</Link>
+                        <Link href='/patient/about'>About</Link>
 
                     </div>
 
-                    
+
                 </section>
-                
+
                 {/* Контент */}
                 <main className=""> {children}
 
                     <div className=" ml-[80%] fixed top-[600px] lg:top-[700px] lg:ml-[90%]">
-                        <Badge color="secondary" badgeContent={"?"}>
-                           <ChatModal/>
-                        </Badge>
+                        <Badge color="secondary" badgeContent={"?"}><ChatModal /></Badge>
                     </div>
-                   
+
                 </main>
 
 

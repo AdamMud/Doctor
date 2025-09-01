@@ -13,11 +13,6 @@ export default function Admin() {
     chat: [],
   });
 
-  const admin = {
-    name: "Admin User",
-    email: "admin@mail.com",
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,6 +37,8 @@ export default function Admin() {
     };
 
     fetchData();
+
+ 
   }, []);
 
   return (
@@ -53,8 +50,12 @@ export default function Admin() {
           <p className="text-gray-500 mt-1">Обзор показателей и данных</p>
         </div>
         <div className="mt-4 md:mt-0 text-gray-700">
-          Привет, <span className="font-semibold">{admin.name}</span>
+          Привет, <span className="font-semibold">
+            {data.users.length > 0 ? data.users[0].name : "Администратор"}
+          </span>
         </div>
+
+
       </header>
 
       <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

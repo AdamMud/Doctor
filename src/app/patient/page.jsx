@@ -1,43 +1,56 @@
 'use client'
 
-import { useEffect, useState } from "react";
-
-
-
-
 export default function Patients() {
-    let APIDOCtors = "http://localhost:3002/doctors"
-    let [data, setData] = useState([])
-
-    async function get() {
-        try {
-            let { data } = await axios.get(APIDOCtors)
-            setData(data)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(()=>{
-        get()
-    },[])
-
-    return (<>
-
-        <section className="bg">
-            <div className="lg:w-[800px] pt-[150px] px-[20px] lg:px-[100px]">
-                <h1 className="text-[#159EEC] font-bold">Забота о жизни</h1>
-                <h1 className="text-[#1F2B6C] font-bold text-[20px] lg:text-[40px]"> Лидерство в медицинском совершенстве</h1>
-            </div>
-        </section>
+  return (
+    <>
+      {/* Хедер с фоном */}
+   <section className="bg-hero flex flex-col justify-center items-center text-center px-6">
+  <h1 className="text-white font-bold text-4xl lg:text-6xl drop-shadow-lg">
+    Забота о жизни
+  </h1>
+  <p className="text-white mt-4 text-lg lg:text-2xl drop-shadow-md">
+    Лидерство в медицинском совершенстве
+  </p>
+</section>
 
 
-        <section className="w-[90%] m-auto">
-            {data.map((e)=>{
-                return(<div key={e.id} className="w-[300px] h-[400px] border ">
-                    <h1>{e.name}</h1>
-                </div>)
-            })}
-        </section>
-    </>)
+      {/* Секция с описанием */}
+      <section className="bg-white py-16 px-6 mt-16 rounded-2xl w-[90%] m-auto shadow-lg">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+          Почему пациенты выбирают нас
+        </h2>
+        <p className="text-gray-700 max-w-3xl m-auto text-center">
+          Мы предоставляем профессиональную медицинскую помощь, современное оборудование
+          и индивидуальный подход к каждому пациенту. Здесь здоровье и забота — на первом месте.
+        </p>
+      </section>
+
+      {/* Статистика */}
+      <section className="w-[90%] m-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div className="bg-blue-100 rounded-2xl shadow-lg p-6">
+          <h3 className="text-3xl font-bold text-blue-800">100+</h3>
+          <p className="text-gray-700 mt-2">Довольных пациентов</p>
+        </div>
+        <div className="bg-blue-100 rounded-2xl shadow-lg p-6">
+          <h3 className="text-3xl font-bold text-blue-800">24/7</h3>
+          <p className="text-gray-700 mt-2">Поддержка и консультации</p>
+        </div>
+        <div className="bg-blue-100 rounded-2xl shadow-lg p-6">
+          <h3 className="text-3xl font-bold text-blue-800">50+</h3>
+          <p className="text-gray-700 mt-2">Опытных врачей</p>
+        </div>
+      </section>
+
+      {/* Дополнительная секция */}
+      <section className="bg-white py-16 px-6 mt-16 rounded-2xl w-[90%] m-auto shadow-lg text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          Мы заботимся о вашем здоровье
+        </h2>
+        <p className="text-gray-700 max-w-3xl m-auto">
+          Наши специалисты всегда готовы помочь и дать рекомендации по профилактике
+          и лечению любых заболеваний. Ваша жизнь — наша главная ценность.
+        </p>
+      </section>
+    </>
+  );
 }

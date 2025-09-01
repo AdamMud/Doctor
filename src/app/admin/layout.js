@@ -2,6 +2,12 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { FaHome } from "react-icons/fa";
+import { FaUserDoctor } from "react-icons/fa6";
+import { MdOutlineSick } from "react-icons/md";
+import { IoFolderOpen } from "react-icons/io5";
+import { GoFileDirectoryFill } from "react-icons/go";
+
 
 export default function AdminLayout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -19,22 +25,20 @@ export default function AdminLayout({ children }) {
             className="mb-6 text-gray-500 hover:text-gray-800"
             onClick={() => setSidebarOpen(!isSidebarOpen)}
           >
-            {isSidebarOpen ? 'Hide' : 'Open'}
+            {isSidebarOpen ? <IoFolderOpen />:<GoFileDirectoryFill /> }
           </button>
 
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col font-bold text-[20px] gap-4">
             <Link href="/admin" className="text-gray-700 hover:text-blue-500">
-              {isSidebarOpen ? 'Дашборд' : 'D'}
+              {isSidebarOpen ? 'Дашборд' : <FaHome />}
             </Link>
-            <Link href="/admin/manage" className="text-gray-700 hover:text-blue-500">
-              {isSidebarOpen ? 'Доктора' : 'D'}
+            <Link href="/admin/manageDoctors" className="text-gray-700 hover:text-blue-500">
+              {isSidebarOpen ? 'Доктора' : <FaUserDoctor />}
             </Link>
-            <Link href="/admin/patients" className="text-gray-700 hover:text-blue-500">
-              {isSidebarOpen ? 'Пациенты' : 'P'}
+            <Link href="/admin/managePatients" className="text-gray-700 hover:text-blue-500">
+              {isSidebarOpen ? 'Пациенты' : <MdOutlineSick />}
             </Link>
-            <Link href="/admin/appointments" className="text-gray-700 hover:text-blue-500">
-              {isSidebarOpen ? 'Назначения' : 'A'}
-            </Link>
+      
           </nav>
 
           <div className="mt-auto text-gray-500">
