@@ -14,7 +14,7 @@ export default function DoctorLayout({ children }) {
             <Link href="/doctor/myPatient" className="hover:text-yellow-300 transition" > Мои пациенты </Link>
             <Link href="/doctor/patientCard" className="hover:text-yellow-300 transition" > Карточка пациента</Link>
           </nav>
-          
+
         </div>
       </header>
 
@@ -28,24 +28,9 @@ export default function DoctorLayout({ children }) {
             © {new Date().getFullYear()} HISSOR CLINIK — Панель Врача
           </p>
           <div className="flex gap-4 text-sm">
-            <Link
-              href="/doctor"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Главная
-            </Link>
-            <Link
-              href="/doctor/myPatient"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Мои пациенты
-            </Link>
-            <Link
-              href="/doctor/patientCard"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Карточка пациента
-            </Link>
+            <Link href="/doctor" className="hover:text-white transition-colors duration-200" > Главная</Link>
+            <Link href="/doctor/myPatients" className="hover:text-white transition-colors duration-200"  > Мои пациенты  </Link>
+            <Link href="/doctor/patientCard" className="hover:text-white transition-colors duration-200" >   Карточка пациента   </Link>
           </div>
         </div>
       </footer>

@@ -6,7 +6,7 @@ export const doctorApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3002" }),
   endpoints: (builder) => ({
     getDoctors: builder.query({
-      query: () => "/doctors", // GET запрос
+      query: () => "/doctors", 
     }),
   }),
 });

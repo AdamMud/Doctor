@@ -111,7 +111,7 @@
       "id": 3,
       "role": "admin",
       "name": "Azam",
-      "email": "admin@mail.com",
+      "email": "azam@mail.com",
       "password": "admin123",
       "token": "admin-token-123"
     },

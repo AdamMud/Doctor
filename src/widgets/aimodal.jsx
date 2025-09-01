@@ -26,7 +26,7 @@ export default function ChatModal() {
       </Button>
 
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="sm">
-        <DialogTitle>Gemini Chat</DialogTitle>
+        <DialogTitle>Chat with Doctor</DialogTitle>
         <DialogContent>
           <TextField
             label="Hello , how can i help you"

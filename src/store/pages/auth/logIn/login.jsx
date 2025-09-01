@@ -1,6 +1,3 @@
-
-
-
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
@@ -36,8 +33,7 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Users"],
     }),
-
-    // 🔹 новый endpoint для получения юзера по токену
+    // барои токена гирифтани маълумот
     getUserByToken: builder.query({
       query: (token) => `users?token=${token}`,
       providesTags: ["Users"],
@@ -52,5 +48,5 @@ export const {
   useGetAppointmentsQuery,
   useGetChatQuery,
   useAddUserMutation,
-  useGetUserByTokenQuery, // ← новый хук
+  useGetUserByTokenQuery, 
 } = apiSlice;

@@ -30,7 +30,7 @@ export default function PatientLayout({ children }) {
                         <Cart1 img={logo3} name="Location" des="Hissor City" alt="Location Icon" />
                     <div className="flex justify-end p-4">
                         <Link href="/login">
-                            <button className="border-gradient-to-r from-green-500 to-green-700 text-green-600 font-semibold px-6 py-2 rounded-2xl shadow-md hover:scale-105 hover:shadow-lg hover:from-green-600 hover:to-green-800 transition-all duration-300 ease-in-out active:scale-95">
+                            <button className="border-green-600 text-green-600 font-semibold px-6 py-2 rounded-2xl  hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out active:scale-95">
                                 Exit
                             </button>
                         </Link>
@@ -46,7 +46,7 @@ export default function PatientLayout({ children }) {
                         <Link href="/patient" className="hover:text-[#159EEC]">Главная</Link>
                         <Link href="/patient/doctors" className="hover:text-[#159EEC]">Врачи</Link>
                         <Link href="/patient/info" className="hover:text-[#159EEC]">Инфо</Link>
-                        <Link href='/patient/about'>About</Link>
+                        <Link href='/patient/about'>О Нас</Link>
 
                     </div>
 

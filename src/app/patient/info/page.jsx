@@ -1,5 +1,6 @@
 'use client';
 
+// import { useGetUserByTokenQuery } from "@/store/pages/info/info";
 import { useGetUserByTokenQuery } from "@/store/pages/auth/logIn/login";
 import { Loader2 } from "lucide-react";
 
@@ -48,15 +49,7 @@ export default function Info() {
 
         {/* Кнопка выхода */}
         <div className="mt-6 flex justify-center">
-          <button
-            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition duration-300 hover:shadow-lg"
-            onClick={() => {
-              localStorage.removeItem("token");
-              window.location.reload();
-            }}
-          >
-            Выйти
-          </button>
+          <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition duration-300 hover:shadow-lg" onClick={() => { localStorage.removeItem("token"); window.location.reload(); }}> Выйти</button>
         </div>
       </div>
     </div>
