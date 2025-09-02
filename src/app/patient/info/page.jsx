@@ -31,7 +31,7 @@ export default function Info() {
   return (
     <div className="p-6 flex justify-center">
       <div className="w-full max-w-md border border-gray-200 rounded-2xl shadow-xl p-6 bg-gradient-to-r from-blue-50 to-white">
-        {/* Аватар */}
+       
         <div className="flex flex-col items-center mb-6">
           <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-4xl font-bold text-blue-600">
             {user?.name?.[0] || "?"}

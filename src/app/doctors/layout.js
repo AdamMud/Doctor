@@ -10,9 +10,9 @@ export default function DoctorLayout({ children }) {
         <div className="container mx-auto flex justify-between items-center px-6 py-4">
           <h1 className="text-2xl font-bold tracking-wide">Панель Врача</h1>
           <nav className="flex gap-6 text-sm font-medium">
-            <Link href="/doctor" className="hover:text-yellow-300 transition"> Главная </Link>
-            <Link href="/doctor/myPatient" className="hover:text-yellow-300 transition" > Мои пациенты </Link>
-            <Link href="/doctor/patientCard" className="hover:text-yellow-300 transition" > Карточка пациента</Link>
+            <Link href="/doctors" className="hover:text-yellow-300 transition"> Главная </Link>
+            <Link href="/doctors/myPatient" className="hover:text-yellow-300 transition" > Мои пациенты </Link>
+            <Link href="/doctors/patientCard" className="hover:text-yellow-300 transition" > Карточка пациента</Link>
           </nav>
 
         </div>
@@ -28,9 +28,9 @@ export default function DoctorLayout({ children }) {
             © {new Date().getFullYear()} HISSOR CLINIK — Панель Врача
           </p>
           <div className="flex gap-4 text-sm">
-            <Link href="/doctor" className="hover:text-white transition-colors duration-200" > Главная</Link>
-            <Link href="/doctor/myPatients" className="hover:text-white transition-colors duration-200"  > Мои пациенты  </Link>
-            <Link href="/doctor/patientCard" className="hover:text-white transition-colors duration-200" >   Карточка пациента   </Link>
+            <Link href="/doctors" className="hover:text-white transition-colors duration-200" > Главная</Link>
+            <Link href="/doctors/myPatient" className="hover:text-white transition-colors duration-200"  > Мои пациенты  </Link>
+            <Link href="/doctors/patientCard" className="hover:text-white transition-colors duration-200" >   Карточка пациента   </Link>
           </div>
         </div>
       </footer>

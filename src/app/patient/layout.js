@@ -45,7 +45,7 @@ export default function PatientLayout({ children }) {
                     <div className="lg:w-[90%] m-auto flex gap-[20px]">
                         <Link href="/patient" className="hover:text-[#159EEC]">Главная</Link>
                         <Link href="/patient/doctors" className="hover:text-[#159EEC]">Врачи</Link>
-                        <Link href="/patient/info" className="hover:text-[#159EEC]">Инфо</Link>
+                        <Link href="/patient/info" className="hover:text-[#159EEC]">Профиль</Link>
                         <Link href='/patient/about'>О Нас</Link>
 
                     </div>

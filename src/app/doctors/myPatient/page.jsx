@@ -4,7 +4,7 @@ import { useGetPatientsQuery } from "@/store/pages/auth/logIn/login";
 // import { useGetPatientsQuery } from "@/store/apiSlice";
 import { useRouter } from "next/navigation";
 
-export default function MyPatients() {
+export default function MyPatient() {
   const router = useRouter();
   const doctorId = localStorage.getItem("userId");
   const { data: patients, isLoading, error } = useGetPatientsQuery(doctorId);
@@ -23,12 +23,7 @@ export default function MyPatients() {
               <p>{p.email}</p>
               <p>{p.phone}</p>
             </div>
-            <button
-              onClick={() => router.push(`/doctor/patientCard/${p.id}`)}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Открыть
-            </button>
+            <button onClick={() => router.push(`/doctor/patientCard/${p.id}`)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" >   Открыть </button>
           </div>
         ))}
       </div>
